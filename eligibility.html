@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!-- This website template was created by : Dukuh, 03/25/2022 -->
+<html lang="en">
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <title>CARIT</title>
+    </head>
+
+    
+    <body>
+        <div class="topnav">
+            <a class="active" href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="resources.html">Resources</a>
+            <a href="eligibility.html">Eligibility</a>
+        </div>
+
+        <div class = "form">
+        <center>
+            <form>
+                <h2><b> Hello Student, on this page you can check your eligibility to apply for assistant positions. Please Fill the form below and click on evaluate to know your status.</b></h2>
+                </br>
+                <h3>Student Status: </h3>
+
+                <select id="StudentStatusSelect" onchange='StudentStatusChage(this.value)'>
+                    <option value="a">select</option>
+                    <option value="b">Under Graduate</option>
+                    <option value="c">Graduate</option>
+                </select>
+                </br>
+                </br>
+                <table id="courseTable" border="1">
+                <tr>
+                <th>
+                Course
+                </th>
+                <th>
+                Grade obtained
+                </th>
+                </tr>
+                
+                <tr>
+                <th>
+                <label id="subject1"></label>
+                </th>
+                <th>
+                <select id="subject1Grade">
+                <option value="4">a</option>
+                <option value="3">b</option>
+                <option value="2">c</option>
+                <option value="1">d</option>
+                <option value="0">f</option>
+                </select>
+                </th>
+                </tr>
+                <tr>
+                <th>
+                <label id="subject2"></label>
+                </th>
+                <th>
+                <select id="subject2Grade">
+                <option value="4">a</option>
+                <option value="3">b</option>
+                <option value="2">c</option>
+                <option value="1">d</option>
+                <option value="0">f</option>
+                </select>
+                </th>
+                </tr>
+                
+                <tr>
+                <th>
+                <label id="subject3"></label>
+                </th>
+                <th>
+                <select id="subject3Grade">
+                <option value="4">a</option>
+                <option value="3">b</option>
+                <option value="2">c</option>
+                <option value="1">d</option>
+                <option value="0">f</option>
+                </select>
+                </th>
+                </tr>
+                <tr>
+                <th>
+                <label id="subject4"></label>
+                </th>
+                <th>
+                <select id="subject4Grade">
+                <option value="4">a</option>
+                <option value="3">b</option>
+                <option value="2">c</option>
+                <option value="1">d</option>
+                <option value="0">f</option>
+                </select>
+                </th>
+                </tr>
+                </table>
+                </br>
+
+                </form>
+
+                <button id="evaluateButton" type="button" onclick="evalute()">Evaluate</button>
+                </br>
+                </br>
+                <label id="msg"></label>
+        </center>
+    </div>
+
+        <script>
+        document.getElementById("courseTable").style.visibility = "hidden";
+        document.getElementById("evaluateButton").style.visibility = "hidden";
+        function StudentStatusChage(value) {
+        if(value == 'b')
+        {
+        document.getElementById("courseTable").style.visibility = "visible";
+        document.getElementById("evaluateButton").style.visibility = "visible";
+        document.getElementById("subject1").innerHTML = "CSE 4983:Computing Internship";
+        document.getElementById("subject2").innerHTML = "IT 4893: Internet of Things: Applications and Security";
+        document.getElementById("subject3").innerHTML = "FTA 4005: Introduction to Financial Data Analytics";
+        document.getElementById("subject4").innerHTML = "IT 4213 Mobile Web Development";
+
+        }
+        if(value == 'c')
+        {
+        document.getElementById("courseTable").style.visibility = "visible";
+        document.getElementById("evaluateButton").style.visibility = "visible";
+        document.getElementById("subject1").innerHTML = "IT 7113 Data Visualization";
+        document.getElementById("subject2").innerHTML = "IT 6713 Business Inteligence";
+        document.getElementById("subject3").innerHTML = "IT 5413: Software Design and Development";
+        document.getElementById("subject4").innerHTML = "IT 5413: Software Design and Development";
+        }
+        if(value == 'a')
+        {
+        document.getElementById("courseTable").style.visibility = "hidden";
+        document.getElementById("evaluateButton").style.visibility = "hidden";
+        }
+        }
+
+        function evalute()
+        {
+        var a=document.getElementById("subject1Grade").value;
+        var b=document.getElementById("subject2Grade").value;
+        var c=document.getElementById("subject3Grade").value;
+        var d=document.getElementById("subject4Grade").value;
+        var grade,averagemarks;
+        
+        if(document.getElementById("StudentStatusSelect").value=='b')
+        {
+        averagemarks=(Number(a)+Number(b)+Number(c)+Number(d))/4 ;
+
+        if(averagemarks>3.2)
+        {
+
+        document.getElementById("msg").innerHTML = "Congratulations, You are eligible to apply, Please click the link to <a href='#'>Proceed...</a>";
+        }
+        else
+        {
+        document.getElementById("msg").innerHTML = "We are Sorry, You did not meet the criteria";
+        }
+        }
+        if(document.getElementById("StudentStatusSelect").value=='c')
+        {
+        if((Number(a)+Number(b)+Number(c)+Number(d))/4 >3.7)
+        {
+        document.getElementById("msg").innerHTML = "Congratulations, You are eligible to apply, Please click the link to <a href='#'>Proceed...</a>";
+        }
+        else
+        {
+        document.getElementById("msg").innerHTML = "Sorry, You did not meet the criteria";
+        }
+        }
+        }
+        </script>
+
+        <footer>
+            <p>Author: Bernnison Dukuh</p>
+            <a href="http://it5443.azurewebsites.net">KSU. Disclaimer: This is a class project</a>
+            <p><a href="mailto:hege@example.com">hege@example.com</a></p>
+            <a href="https://ccse.kennesaw.edu/it/">
+                <div class="logo-image">
+                    <img src="https://cloudfront-us-east-1.images.arcpublishing.com/ajc/BVMLJOI6YMOI5V7AXOGVUKGS2A.png" style="width:300px;height:100px;">
+                </div>
+            </a>
+        </footer>
+
+    </body>
+</html>
